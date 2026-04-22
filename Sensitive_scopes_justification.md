@@ -1,0 +1,8 @@
+Sensitive scopes justification (spreadsheets, script.container.ui, script.scriptapp) — paste this:
+
+Gmail Cleaner uses these scopes to operate its core functionality within Google Sheets. The spreadsheets scope is required to read and write the Senders list, Crawler Status dashboard, and deletion audit log to the user's own spreadsheet. The script.container.ui scope is required to display the add-on menu inside Google Sheets so users can start the crawler and review senders. The script.scriptapp scope is required to create and manage a time-driven supervisor trigger that allows the crawler to continue processing across multiple sessions in the background — without this, the crawler could not resume automatically on large mailboxes. No narrower scopes are sufficient because the add-on must write to spreadsheets outside the container context (trigger-driven sessions have no active spreadsheet) and must manage its own triggers programmatically.
+
+
+For the Gmail restricted scope — first select from the dropdown "Read/Write email messages and metadata", then paste this justification:
+
+Gmail Cleaner uses gmail.modify to read email thread metadata (sender name, email address, date, recipient) to build the Senders list, and to move emails to Trash when the user explicitly marks a sender for deletion. The app never reads email body content, never sends emails, and never modifies emails without explicit user confirmation. A narrower scope such as gmail.readonly would be insufficient because the core deletion workflow requires the ability to trash threads. The gmail.modify scope is the minimum required scope that covers both reading metadata and moving emails to Trash.
