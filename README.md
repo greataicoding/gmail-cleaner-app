@@ -1,4 +1,4 @@
-# gmail-cleaner-app
+# GreatAICoding - Gmail Cleaner
 Public-facing pages for Gmail Cleaner — privacy policy and app information.
 
 <h2>Data and Privacy</h2>
